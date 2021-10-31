@@ -1,0 +1,53 @@
+# there are multiple ways to create a Dictionary with the occurance count (frequency ) from a list containing duplicate values 
+
+*****method -1 without using any in-build method or library function *******
+
+def freq(tempList):
+    tempDict = {}
+    for val in tempList:
+        if not val in tempDict:
+           tempDict[val] = 0
+        tempDict[val] += 1
+    return tempDict # this will return the dict containg the key as val in List and frequency as values 
+    
+myList = [1,2,3,4,2,3,4,6]
+print(freq(myList))  
+
+Output:
+{1: 1, 2: 2, 3: 2, 4: 2, 6: 1}
+
+
+
+****** method 2 - using in-build counter method from collections  ******
+
+from collections import Counter
+def freq(tempList):
+    return Counter(tempList)
+    
+myList = [1,2,3,4,2,3,4,6]
+print(freq(myList))  
+
+Output:
+Counter({2: 2, 3: 2, 4: 2, 1: 1, 6: 1})
+
+***** method 3 - using the in-built method dictionary get *****
+
+def freq(tempList):
+    tempDict = {}
+    for val in tempList:
+        tempDict[val] = tempDict.get(val,0) + 1 
+    return tempDict
+
+
+myList = [1,2,3,4,2,3,4,6]
+print(freq(myList)) 
+
+output:
+{1: 1, 2: 2, 3: 2, 4: 2, 6: 1}
+    
+    
+
+
+    
+
+        
